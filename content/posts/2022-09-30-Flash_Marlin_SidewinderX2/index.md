@@ -40,7 +40,8 @@ I also left unsupported hardware features disabled. For details, see the Configu
 1. Install Pronterface
 1. Install STM32CubeProgrammer
 1. PowerOn your Artillery Sidewinder X2
-1. Connect your PC/Mac/Laptop with USB to your Sidewinder
+1. Connect your PC/Mac/Laptop with USB to your Sidewinder (You need the CH340ser driver)
+   (If the computer does't detect the new device, you need to remove the bottom cover of the printer and close the +3.3V and BOOT0 contacts on the board using a jumper and reconnect to computer.)
 1. Start Pronterface
    1. Connect with 115200 Baud to your Printer
    1. Type `M997` at bottom right
@@ -48,11 +49,11 @@ I also left unsupported hardware features disabled. For details, see the Configu
    1. If you using Windows, look into your device manager, if there is a "STM32 Bootloader"
 1. Disconnect Pronterface
 1. Start STM32CubeProgrammer
-   1. Connect with USB
+   1. Connect with USB (
    1. **Make a backup of your original firmware**
    1. Flash the modified Firmware:
       1. Download the `firmware.bin` form the latest release from my github page [https://github.com/freakydude/Marlin/releases/](https://github.com/freakyDude/Marlin/releases/).
-      1. In STM32CubeProgrammer, Open File, Select Firmware, Press Download
+      1. In STM32CubeProgrammer, Open File, Select Firmware, Press Download (If the SMT32CubeProgrammer log contains the lines “sector XXXX does not exist”, you must select “Erasing&Programming” -> “Erase flash memory” -> “Full chip erase”. And try to flash it again.)
 1. Disconnect USB cable from your printer, restart (power-off, on) your printer
 1. Reset EEPROM with `M502` and save EEPROM settings with `M500` command
 
